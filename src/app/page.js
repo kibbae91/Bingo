@@ -160,8 +160,8 @@ export default function Home() {
   return (
     <div className="home-container">
       <div className="header">
-        <h1 className="title">🎉 Jóla Bingó</h1>
-        <p className="subtitle">Uppáhalds Jólabingóið okkar</p>
+        <h1 className="title">🎉 Bingó</h1>
+        <p className="subtitle">Uppáhalds bingóið okkar</p>
       </div>
       
       <div className="content-wrapper">
@@ -193,6 +193,17 @@ export default function Home() {
             </p>
           </div>
 
+          {/* Action Buttons */}
+          <div className="button-group">
+            <button onClick={selectRandomNumber} className="btn btn-primary">
+              🎲 Dragðu tölu
+            </button>
+            <button onClick={startNewGame} className="btn btn-secondary">
+              🎮 Byrja nýjan leik
+            </button>
+          </div>
+
+
           {/* Current Number Display */}
           {currentNumber && (
             <div className="current-number-display" style={{ 
@@ -205,15 +216,6 @@ export default function Home() {
             </div>
           )}
 
-          {/* Action Buttons */}
-          <div className="button-group">
-            <button onClick={selectRandomNumber} className="btn btn-primary">
-              🎲 Dragðu tölu
-            </button>
-            <button onClick={startNewGame} className="btn btn-secondary">
-              🎮 Byrja nýjan leik
-            </button>
-          </div>
 
           {/* Statistics */}
           <div className="section card stats">
