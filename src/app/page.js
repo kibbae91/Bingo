@@ -84,6 +84,9 @@ export default function Home() {
     setSelectedNumbers([...selectedNumbers, randomNumber]);
     setCurrentNumber(randomNumber);
     
+    // Clear bingo message when drawing new number
+    localStorage.removeItem('bingoMessage');
+    
     // Save to localStorage for display screen
     localStorage.setItem('lastBingoNumber', JSON.stringify({
       number: randomNumber,
@@ -95,6 +98,8 @@ export default function Home() {
   const startNewGame = () => {
     setSelectedNumbers([]);
     setCurrentNumber(null);
+    // Clear bingo message
+    localStorage.removeItem('bingoMessage');
     // Draw the first number after a brief delay
     // setTimeout(() => {
     //   const availableNumbers = getAvailableNumbers();
@@ -103,6 +108,13 @@ export default function Home() {
     //   setSelectedNumbers([randomNumber]);
     //   setCurrentNumber(randomNumber);
     // }, 100);
+  };
+
+  const showBingoMessage = () => {
+    localStorage.setItem('bingoMessage', JSON.stringify({
+      text: 'ÞAÐ ER BINGÓ!',
+      timestamp: Date.now()
+    }));
   };
 
   const getBingoLetter = (number) => {
@@ -118,7 +130,7 @@ export default function Home() {
     const letterColors = {
       B: "#e74c3c",
       I: "#3498db",
-      N: "#ffffff",
+      N: "#2ecc71",
       G: "#f39c12",
       O: "#9b59b6"
     };
@@ -257,6 +269,12 @@ export default function Home() {
                 ))}
               </div>
             )}
+          </div>
+
+          <div>
+            <button onClick={showBingoMessage} className="btn btn-primary">
+              BINGÓ!
+            </button>
           </div>
         </div>
 

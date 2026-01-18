@@ -17,14 +17,15 @@ var _s = __turbopack_context__.k.signature();
 ;
 function DisplayPage() {
     _s();
-    const $ = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$compiler$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["c"])(5);
-    if ($[0] !== "e66d8d8329129863ebdbb04159fbae62c70a7403f6bf839772ec315bb6b22d39") {
-        for(let $i = 0; $i < 5; $i += 1){
+    const $ = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$compiler$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["c"])(6);
+    if ($[0] !== "8b38586f6096426892a561473e58444483375353179df2d5fe463d3d11a64233") {
+        for(let $i = 0; $i < 6; $i += 1){
             $[$i] = Symbol.for("react.memo_cache_sentinel");
         }
-        $[0] = "e66d8d8329129863ebdbb04159fbae62c70a7403f6bf839772ec315bb6b22d39";
+        $[0] = "8b38586f6096426892a561473e58444483375353179df2d5fe463d3d11a64233";
     }
     const [lastNumber, setLastNumber] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
+    const [bingoMessage, setBingoMessage] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
     let t0;
     let t1;
     if ($[1] === Symbol.for("react.memo_cache_sentinel")) {
@@ -34,12 +35,23 @@ function DisplayPage() {
                 if (stored) {
                     setLastNumber(JSON.parse(stored));
                 }
+                const storedBingo = localStorage.getItem("bingoMessage");
+                if (storedBingo) {
+                    setBingoMessage(JSON.parse(storedBingo));
+                }
                 const interval = setInterval({
                     "DisplayPage[useEffect() > setInterval()]": ()=>{
                         const stored_0 = localStorage.getItem("lastBingoNumber");
                         if (stored_0) {
                             const data = JSON.parse(stored_0);
                             setLastNumber(data);
+                        }
+                        const storedBingo_0 = localStorage.getItem("bingoMessage");
+                        if (storedBingo_0) {
+                            const data_0 = JSON.parse(storedBingo_0);
+                            setBingoMessage(data_0);
+                        } else {
+                            setBingoMessage(null);
                         }
                     }
                 }["DisplayPage[useEffect() > setInterval()]"], 100);
@@ -56,35 +68,149 @@ function DisplayPage() {
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])(t0, t1);
     const getLetterColor = _DisplayPageGetLetterColor;
     let t2;
-    if ($[3] !== lastNumber) {
+    if ($[3] !== bingoMessage || $[4] !== lastNumber) {
         t2 = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             className: "display-container",
-            children: lastNumber ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            children: bingoMessage ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "display-content",
+                style: {
+                    background: "linear-gradient(135deg, #2ecc71, #27ae60)",
+                    animation: "pulse 1.5s infinite"
+                },
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "12px",
+                            justifyContent: "center",
+                            marginBottom: "16px",
+                            backgroundColor: "#ffffff88",
+                            padding: "8px 16px",
+                            borderRadius: "12px"
+                        },
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                                src: "/njardvik.png",
+                                alt: "Bingo Logo",
+                                className: "logo",
+                                style: {
+                                    width: "80px",
+                                    height: "80px",
+                                    objectFit: "contain"
+                                }
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/display/page.js",
+                                lineNumber: 71,
+                                columnNumber: 12
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
+                                style: {
+                                    fontSize: "60px",
+                                    color: "#3D6B48"
+                                },
+                                children: "BINGÓ"
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/display/page.js",
+                                lineNumber: 75,
+                                columnNumber: 16
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/app/display/page.js",
+                        lineNumber: 62,
+                        columnNumber: 10
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            fontSize: "120px",
+                            fontWeight: "bold",
+                            color: "white",
+                            textShadow: "4px 4px 8px rgba(0,0,0,0.3)"
+                        },
+                        children: bingoMessage.text
+                    }, void 0, false, {
+                        fileName: "[project]/src/app/display/page.js",
+                        lineNumber: 78,
+                        columnNumber: 30
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/app/display/page.js",
+                lineNumber: 59,
+                columnNumber: 61
+            }, this) : lastNumber ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "display-content",
                 style: {
                     background: `linear-gradient(135deg, ${getLetterColor(lastNumber.letter)}, ${getLetterColor(lastNumber.letter)}dd)`
                 },
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "12px",
+                            justifyContent: "center",
+                            marginBottom: "16px",
+                            backgroundColor: "#ffffff88",
+                            padding: "8px 16px",
+                            borderRadius: "12px"
+                        },
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                                src: "/njardvik.png",
+                                alt: "Bingo Logo",
+                                className: "logo",
+                                style: {
+                                    width: "80px",
+                                    height: "80px",
+                                    objectFit: "contain"
+                                }
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/display/page.js",
+                                lineNumber: 97,
+                                columnNumber: 12
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
+                                style: {
+                                    fontSize: "60px",
+                                    color: "#3D6B48"
+                                },
+                                children: "BINGÓ"
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/display/page.js",
+                                lineNumber: 101,
+                                columnNumber: 16
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/app/display/page.js",
+                        lineNumber: 88,
+                        columnNumber: 10
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "display-letter",
                         children: lastNumber.letter
                     }, void 0, false, {
                         fileName: "[project]/src/app/display/page.js",
-                        lineNumber: 49,
-                        columnNumber: 10
+                        lineNumber: 104,
+                        columnNumber: 30
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "display-number",
                         children: lastNumber.number
                     }, void 0, false, {
                         fileName: "[project]/src/app/display/page.js",
-                        lineNumber: 49,
-                        columnNumber: 67
+                        lineNumber: 104,
+                        columnNumber: 87
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/display/page.js",
-                lineNumber: 47,
+                lineNumber: 86,
                 columnNumber: 59
             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "waiting-content",
@@ -93,27 +219,28 @@ function DisplayPage() {
                     children: "Bíður eftir tölu..."
                 }, void 0, false, {
                     fileName: "[project]/src/app/display/page.js",
-                    lineNumber: 49,
-                    columnNumber: 166
+                    lineNumber: 104,
+                    columnNumber: 186
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/app/display/page.js",
-                lineNumber: 49,
-                columnNumber: 133
+                lineNumber: 104,
+                columnNumber: 153
             }, this)
         }, void 0, false, {
             fileName: "[project]/src/app/display/page.js",
-            lineNumber: 47,
+            lineNumber: 59,
             columnNumber: 10
         }, this);
-        $[3] = lastNumber;
-        $[4] = t2;
+        $[3] = bingoMessage;
+        $[4] = lastNumber;
+        $[5] = t2;
     } else {
-        t2 = $[4];
+        t2 = $[5];
     }
     return t2;
 }
-_s(DisplayPage, "umxa8Oq6dQwkfjuhNPqIKBLViJY=");
+_s(DisplayPage, "wDvmNmwzatJQ0doZU/qztSyuAFc=");
 _c = DisplayPage;
 function _DisplayPageGetLetterColor(letter) {
     const letterColors = {
