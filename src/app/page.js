@@ -21,6 +21,13 @@ export default function Home() {
     const randomNumber = availableNumbers[randomIndex];
     setSelectedNumbers([randomNumber]);
     setCurrentNumber(randomNumber);
+    
+    // Save to localStorage for display screen
+    localStorage.setItem('lastBingoNumber', JSON.stringify({
+      number: randomNumber,
+      letter: getBingoLetter(randomNumber),
+      timestamp: Date.now()
+    }));
   }, []);
 
   const handleLetterToggle = (letter) => {
@@ -76,6 +83,13 @@ export default function Home() {
     
     setSelectedNumbers([...selectedNumbers, randomNumber]);
     setCurrentNumber(randomNumber);
+    
+    // Save to localStorage for display screen
+    localStorage.setItem('lastBingoNumber', JSON.stringify({
+      number: randomNumber,
+      letter: getBingoLetter(randomNumber),
+      timestamp: Date.now()
+    }));
   };
 
   const startNewGame = () => {
@@ -104,7 +118,7 @@ export default function Home() {
     const letterColors = {
       B: "#e74c3c",
       I: "#3498db",
-      N: "#2ecc71",
+      N: "#ffffff",
       G: "#f39c12",
       O: "#9b59b6"
     };
@@ -123,7 +137,7 @@ export default function Home() {
     const letterColors = {
       B: "#e74c3c",
       I: "#3498db",
-      N: "#2ecc71",
+      N: "#ffffff",
       G: "#f39c12",
       O: "#9b59b6"
     };
@@ -138,7 +152,17 @@ export default function Home() {
                 className="column-header"
                 style={{ backgroundColor: letterColors[letter] }}
               >
-                {letter}
+                {letter === "N" ? (
+                  <Image 
+                    src="/njardvik.png" 
+                    alt="N" 
+                    width={45} 
+                    height={45}
+                    style={{ objectFit: 'contain' }}
+                  />
+                ) : (
+                  letter
+                )}
               </div>
               <div className="column-numbers">
                 {columns[letter].map(num => (
@@ -159,9 +183,9 @@ export default function Home() {
 
   return (
     <div className="home-container">
-      <div className="header">
-        <h1 className="title">🎉 Bingó</h1>
-        <p className="subtitle">Uppáhalds bingóið okkar</p>
+      <div className="header" style={{ display: 'flex', alignItems: 'center', gap: '12px', justifyContent: 'center', marginBottom: '16px' }}>
+        <img src="/njardvik.png" alt="Bingo Logo" className="logo" style={{ width: '100px', height: '100px', objectFit: 'contain' }}/>
+        <h1 style={{ color: '#3D6B48', fontSize: '100px' }}>Bingó</h1>
       </div>
       
       <div className="content-wrapper">
